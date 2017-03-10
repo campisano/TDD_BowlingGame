@@ -12,6 +12,11 @@ BowlingTest::BowlingTest() : cxxtools::unit::TestSuite("SIMTest")
         "canRoll",
         *this,
         &BowlingTest::canRoll);
+
+    registerMethod(
+        "gutterGame",
+        *this,
+        &BowlingTest::gutterGame);
 }
 
 BowlingTest::~BowlingTest()
@@ -31,6 +36,16 @@ void BowlingTest::tearDown()
 void BowlingTest::canRoll()
 {
     m_g->roll(0);
+}
+
+void BowlingTest::gutterGame()
+{
+    for(int i=0; i<20; ++i)
+    {
+        m_g->roll(0);
+    }
+
+    CXXTOOLS_UNIT_ASSERT_EQUALS(0, m_g->score());
 }
 
 cxxtools::unit::RegisterTest<BowlingTest> register_testr;

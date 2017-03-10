@@ -8,6 +8,7 @@ public:
     virtual ~Game();
 
     void roll(unsigned int _pins);
+    unsigned int score();
 
 private:
 };

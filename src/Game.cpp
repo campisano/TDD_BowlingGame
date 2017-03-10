@@ -14,3 +14,8 @@ Game::~Game()
 void Game::roll(unsigned int _pins)
 {
 }
+
+unsigned int Game::score()
+{
+    return 0;
+}
