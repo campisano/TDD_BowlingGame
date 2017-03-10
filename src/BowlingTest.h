@@ -10,6 +10,7 @@ public:
     virtual ~BowlingTest();
 
 private:
+    void canCreateGame();
 };
 
 #endif

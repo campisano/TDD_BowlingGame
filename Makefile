@@ -148,7 +148,9 @@ CMD_COMPILE_TEST:	MAIN_TEST
 
 MAIN_TEST:			BowlingTest
 
-BowlingTest:		$(INC_DIR)/BowlingTest.h $(OUT_DIR)/BowlingTest.o
+BowlingTest:		Game $(INC_DIR)/BowlingTest.h $(OUT_DIR)/BowlingTest.o
+Game:				$(INC_DIR)/Game.h $(OUT_DIR)/Game.o
+
 
 
 ################################################################################
