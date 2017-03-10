@@ -42,7 +42,7 @@ void BowlingTest::gutterGame()
 
 void BowlingTest::allOnes()
 {
-    rollMany(1, 20);
+    rollMany(20, 1);
 
     CXXTOOLS_UNIT_ASSERT_EQUALS(20, m_g->score());
 }
