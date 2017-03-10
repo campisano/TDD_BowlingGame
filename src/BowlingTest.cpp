@@ -9,11 +9,6 @@ BowlingTest::BowlingTest() : cxxtools::unit::TestSuite("SIMTest")
     std::cout << std::endl << "Test methods:" << std::endl;
 
     registerMethod(
-        "canRoll",
-        *this,
-        &BowlingTest::canRoll);
-
-    registerMethod(
         "gutterGame",
         *this,
         &BowlingTest::gutterGame);
@@ -38,29 +33,26 @@ void BowlingTest::tearDown()
     delete m_g;
 }
 
-void BowlingTest::canRoll()
-{
-    m_g->roll(0);
-}
-
 void BowlingTest::gutterGame()
 {
-    for(int i=0; i<20; ++i)
-    {
-        m_g->roll(0);
-    }
+    rollMany(20, 0);
 
     CXXTOOLS_UNIT_ASSERT_EQUALS(0, m_g->score());
 }
 
 void BowlingTest::allOnes()
 {
-    for(int i=0; i<20; ++i)
-    {
-        m_g->roll(1);
-    }
+    rollMany(1, 20);
 
     CXXTOOLS_UNIT_ASSERT_EQUALS(20, m_g->score());
+}
+
+void BowlingTest::rollMany(unsigned int _times, unsigned int _pins)
+{
+    for(unsigned int i=0; i<_times; ++i)
+    {
+        m_g->roll(_pins);
+    }
 }
 
 cxxtools::unit::RegisterTest<BowlingTest> register_testr;

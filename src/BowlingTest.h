@@ -15,9 +15,10 @@ public:
     virtual void tearDown();
 
 private:
-    void canRoll();
     void gutterGame();
     void allOnes();
+
+    void rollMany(unsigned int _times, unsigned int _pins);
 
     Game * m_g;
 };
