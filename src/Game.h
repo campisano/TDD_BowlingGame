@@ -11,7 +11,8 @@ public:
     unsigned int score();
 
 private:
-    unsigned int m_score;
+    unsigned int m_rolls[21];
+    unsigned int m_current_roll;
 };
 
 #endif

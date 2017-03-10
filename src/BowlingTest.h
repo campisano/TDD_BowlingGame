@@ -17,6 +17,7 @@ public:
 private:
     void gutterGame();
     void allOnes();
+    void oneSpare();
 
     void rollMany(unsigned int _times, unsigned int _pins);
 

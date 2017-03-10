@@ -5,7 +5,7 @@
 
 Game::Game()
 {
-    m_score = 0;
+    m_current_roll = 0;
 }
 
 Game::~Game()
@@ -14,10 +14,17 @@ Game::~Game()
 
 void Game::roll(unsigned int _pins)
 {
-    m_score += _pins;
+    m_rolls[m_current_roll++] = _pins;
 }
 
 unsigned int Game::score()
 {
-    return m_score;
+    unsigned int score = 0;
+
+    for(unsigned int i=0; i<m_current_roll; ++i)
+    {
+        score += m_rolls[i];
+    }
+
+    return score;
 }
