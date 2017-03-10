@@ -5,6 +5,7 @@
 
 Game::Game()
 {
+    m_score = 0;
 }
 
 Game::~Game()
@@ -13,9 +14,10 @@ Game::~Game()
 
 void Game::roll(unsigned int _pins)
 {
+    m_score += _pins;
 }
 
 unsigned int Game::score()
 {
-    return 0;
+    return m_score;
 }

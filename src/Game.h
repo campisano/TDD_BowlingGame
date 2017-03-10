@@ -11,6 +11,7 @@ public:
     unsigned int score();
 
 private:
+    unsigned int m_score;
 };
 
 #endif

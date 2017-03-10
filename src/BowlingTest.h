@@ -17,6 +17,7 @@ public:
 private:
     void canRoll();
     void gutterGame();
+    void allOnes();
 
     Game * m_g;
 };
