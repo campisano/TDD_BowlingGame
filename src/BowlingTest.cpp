@@ -4,16 +4,9 @@
 #include <iostream>
 #include <stdexcept>
 
-#include "Game.h"
-
 BowlingTest::BowlingTest() : cxxtools::unit::TestSuite("SIMTest")
 {
     std::cout << std::endl << "Test methods:" << std::endl;
-
-    registerMethod(
-        "canCreateGame",
-        *this,
-        &BowlingTest::canCreateGame);
 
     registerMethod(
         "canRoll",
@@ -25,15 +18,19 @@ BowlingTest::~BowlingTest()
 {
 }
 
-void BowlingTest::canCreateGame()
+void BowlingTest::setUp()
 {
-    Game g;
+    m_g = new Game();
+}
+
+void BowlingTest::tearDown()
+{
+    delete m_g;
 }
 
 void BowlingTest::canRoll()
 {
-    Game g;
-    g.roll(0);
+    m_g->roll(0);
 }
 
 cxxtools::unit::RegisterTest<BowlingTest> register_testr;
