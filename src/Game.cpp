@@ -10,3 +10,7 @@ Game::Game()
 Game::~Game()
 {
 }
+
+void Game::roll(unsigned int _pins)
+{
+}

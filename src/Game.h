@@ -7,6 +7,8 @@ public:
     explicit Game();
     virtual ~Game();
 
+    void roll(unsigned int _pins);
+
 private:
 };
 

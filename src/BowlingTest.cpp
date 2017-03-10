@@ -14,6 +14,11 @@ BowlingTest::BowlingTest() : cxxtools::unit::TestSuite("SIMTest")
         "canCreateGame",
         *this,
         &BowlingTest::canCreateGame);
+
+    registerMethod(
+        "canRoll",
+        *this,
+        &BowlingTest::canRoll);
 }
 
 BowlingTest::~BowlingTest()
@@ -23,6 +28,12 @@ BowlingTest::~BowlingTest()
 void BowlingTest::canCreateGame()
 {
     Game g;
+}
+
+void BowlingTest::canRoll()
+{
+    Game g;
+    g.roll(0);
 }
 
 cxxtools::unit::RegisterTest<BowlingTest> register_testr;
