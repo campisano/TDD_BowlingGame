@@ -20,6 +20,7 @@ private:
     void oneSpare();
 
     void rollMany(unsigned int _times, unsigned int _pins);
+    void rollSpare();
 
     Game * m_g;
 };

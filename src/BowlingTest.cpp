@@ -18,10 +18,10 @@ BowlingTest::BowlingTest() : cxxtools::unit::TestSuite("SIMTest")
         *this,
         &BowlingTest::allOnes);
 
-    // registerMethod(
-    //     "oneSpare",
-    //     *this,
-    //     &BowlingTest::oneSpare);
+    registerMethod(
+        "oneSpare",
+        *this,
+        &BowlingTest::oneSpare);
 }
 
 BowlingTest::~BowlingTest()
@@ -54,8 +54,7 @@ void BowlingTest::allOnes()
 
 void BowlingTest::oneSpare()
 {
-    m_g->roll(5);
-    m_g->roll(5); // spare
+    rollSpare();
     m_g->roll(3);
 
     rollMany(17, 0);
@@ -69,6 +68,12 @@ void BowlingTest::rollMany(unsigned int _times, unsigned int _pins)
     {
         m_g->roll(_pins);
     }
+}
+
+void BowlingTest::rollSpare()
+{
+    m_g->roll(5);
+    m_g->roll(5);
 }
 
 cxxtools::unit::RegisterTest<BowlingTest> register_testr;
