@@ -1,5 +1,5 @@
 # version of this Makefile
-MAKEFILE_VER=		0.6.3
+MAKEFILE_VER=		0.6.4
 
 
 
@@ -144,9 +144,8 @@ test:				INFO_TRG CMD_PREREQ INFO_VARS INFO_CC CMD_COMPILE_TEST INFO_LD CMD_LINK
 ################################################################################
 #--- CUSTOM dependence files
 
-CMD_COMPILE_TEST:	MAIN_TEST
-
-MAIN_TEST:			BowlingTest
+CMD_COMPILE:		Game $(OUT_DIR)/main.o
+CMD_COMPILE_TEST:	BowlingTest
 
 BowlingTest:		Game $(INC_DIR)/BowlingTest.h $(OUT_DIR)/BowlingTest.o
 Game:				$(INC_DIR)/Game.h $(OUT_DIR)/Game.o
