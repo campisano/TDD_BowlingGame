@@ -1,0 +1,10 @@
+language: cpp
+compiler: gcc
+os: linux
+dist: trusty
+
+before_install:
+- sudo apt-get -qq update
+- sudo apt-get install -y g++ make libcxxtools-dev
+
+script: make test
