@@ -24,16 +24,21 @@ unsigned int Game::score()
 
     for(unsigned int frame=0; frame<10; ++frame)
     {
-        if(isSpare(first_in_frame))
+        if(isStrike(first_in_frame))
         {
-            score += 10 + m_rolls[first_in_frame + 2];
+            score += 10 + nextTwoBallsForStrike(first_in_frame);
+            first_in_frame++;
+        }
+        else if(isSpare(first_in_frame))
+        {
+            score += 10 + nextBallForSpare(first_in_frame);
+            first_in_frame += 2;
         }
         else
         {
-            score += m_rolls[first_in_frame] + m_rolls[first_in_frame + 1];
+            score += twoBallsInFrame(first_in_frame);
+            first_in_frame += 2;
         }
-
-        first_in_frame += 2;
     }
 
     return score;
@@ -42,4 +47,24 @@ unsigned int Game::score()
 bool Game::isSpare(unsigned int _first_in_frame)
 {
     return m_rolls[_first_in_frame] + m_rolls[_first_in_frame + 1] == 10;
+}
+
+bool Game::isStrike(unsigned int _first_in_frame)
+{
+    return m_rolls[_first_in_frame] == 10;
+}
+
+unsigned int Game::nextBallForSpare(unsigned int _first_in_frame)
+{
+    return m_rolls[_first_in_frame + 2];
+}
+
+unsigned int Game::nextTwoBallsForStrike(unsigned int _first_in_frame)
+{
+    return m_rolls[_first_in_frame + 1] + m_rolls[_first_in_frame + 2];
+}
+
+unsigned int Game::twoBallsInFrame(unsigned int _first_in_frame)
+{
+    return m_rolls[_first_in_frame] + m_rolls[_first_in_frame + 1];
 }

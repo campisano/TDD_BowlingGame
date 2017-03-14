@@ -22,6 +22,16 @@ BowlingTest::BowlingTest() : cxxtools::unit::TestSuite("SIMTest")
         "oneSpare",
         *this,
         &BowlingTest::oneSpare);
+
+    registerMethod(
+        "oneStrike",
+        *this,
+        &BowlingTest::oneStrike);
+
+    registerMethod(
+        "perfectGame",
+        *this,
+        &BowlingTest::perfectGame);
 }
 
 BowlingTest::~BowlingTest()
@@ -56,10 +66,25 @@ void BowlingTest::oneSpare()
 {
     rollSpare();
     m_g->roll(3);
-
     rollMany(17, 0);
 
     CXXTOOLS_UNIT_ASSERT_EQUALS(16, m_g->score());
+}
+
+void BowlingTest::oneStrike()
+{
+    rollStrike();
+    m_g->roll(3);
+    m_g->roll(4);
+    rollMany(16, 0);
+
+    CXXTOOLS_UNIT_ASSERT_EQUALS(24, m_g->score());
+}
+
+void BowlingTest::perfectGame()
+{
+    rollMany(12, 10);
+    CXXTOOLS_UNIT_ASSERT_EQUALS(300, m_g->score());
 }
 
 void BowlingTest::rollMany(unsigned int _times, unsigned int _pins)
@@ -74,6 +99,11 @@ void BowlingTest::rollSpare()
 {
     m_g->roll(5);
     m_g->roll(5);
+}
+
+void BowlingTest::rollStrike()
+{
+    m_g->roll(10);
 }
 
 cxxtools::unit::RegisterTest<BowlingTest> register_testr;

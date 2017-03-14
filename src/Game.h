@@ -11,6 +11,10 @@ public:
     unsigned int score();
 
     bool isSpare(unsigned int _first_in_frame);
+    bool isStrike(unsigned int _first_in_frame);
+    unsigned int nextBallForSpare(unsigned int _first_in_frame);
+    unsigned int nextTwoBallsForStrike(unsigned int _first_in_frame);
+    unsigned int twoBallsInFrame(unsigned int _first_in_frame);
 
 private:
     unsigned int m_rolls[21];

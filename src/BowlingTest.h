@@ -18,9 +18,12 @@ private:
     void gutterGame();
     void allOnes();
     void oneSpare();
+    void oneStrike();
+    void perfectGame();
 
     void rollMany(unsigned int _times, unsigned int _pins);
     void rollSpare();
+    void rollStrike();
 
     Game * m_g;
 };
