@@ -2,9 +2,15 @@ language: cpp
 compiler: gcc
 os: linux
 dist: trusty
-
-before_install:
-- sudo apt-get -qq update
-- sudo apt-get install -y g++ make libcxxtools-dev
-
-script: make test
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - g++-5
+            - make
+			- libcxxtools-dev
+script:
+    - export CC="g++-5"
+    - make test
+    - ./BUILD/test/bowling
