@@ -9,8 +9,8 @@ addons:
         packages:
             - g++-5
             - make
-			- libcxxtools-dev
+            - libcxxtools-dev
 script:
     - export CC="g++-5"
-    - make test
+    - make -e test
     - ./BUILD/test/bowling
